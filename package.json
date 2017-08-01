@@ -1,0 +1,24 @@
+{
+  "name": "hz-chat-vue-sfc",
+  "version": "1.0.0",
+  "description": "test vue-sfc + typescript + webpack + horizon + rethinkdb",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack",
+    "test": "hz serve --dev --port 8182"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "vue": "git+https://github.com/DanielRosenwasser/vue.git#540a38fb21adb7a7bc394c65e23e6cffb36cd867"
+  },
+  "devDependencies": {
+    "@horizon/client": "^2.0.0",
+    "css-loader": "^0.28.4",
+    "ts-loader": "^2.3.2",
+    "typescript": "^2.4.2",
+    "vue-loader": "^13.0.2",
+    "vue-template-compiler": "^2.2.1",
+    "webpack": "^3.4.1"
+  }
+}
