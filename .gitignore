@@ -1,0 +1,7 @@
+rethinkdb_data
+node_modules
+**/*.log
+#.hz/secrets.toml
+dist/build.js
+.vscode/**
+.hz/schema.toml.**
