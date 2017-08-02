@@ -20,17 +20,32 @@
 </template>
 <script>
 export default {
-  props:['avatar','messages','newMessage'],
+  //props:['newMessage'],
+  data: function(){
+    return{
+      newMessage: ''
+    }
+  },
+  computed: {
+    messages(){
+      return this.$store.state.messages;
+    },
+    avatar(){
+      return this.$store.state.avatar_url;
+    }
+  },
   methods: {
     addMessage() {
       var text = this.newMessage.trim();
       if (text) {        
-        this.$emit('storeMessage', {
+        var message = {
           text: text,
           datetime: new Date(),
           url: this.avatar,
-        });
-
+        };
+        
+        //this.$emit('storeMessage', message);
+        this.$store.commit('storeMessage', message);
         this.newMessage = '';
       }
     }

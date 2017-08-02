@@ -1,34 +1,18 @@
 import Vue from "vue";
+import Vuex from 'vuex'
 import ChatComponent from './components/chat.vue';
+import store from './store';
 
-declare var Horizon: any;
-const horizon = Horizon();
-const chat = horizon('chat');
+Vue.use(Vuex);
+store.commit('setAvatar',`http://api.adorable.io/avatars/50/${new Date().getMilliseconds()}.png`);
 
-const app = new Vue({
+new Vue({
   el: '#app',
-  template: '<chat-component :avatar="avatar_url" :messages="messages" v-on:storeMessage="storeMessage"/>',
-  data: { 
-    avatar_url: `http://api.adorable.io/avatars/50/${new Date().getMilliseconds()}.png`,
-    messages:[]
-  },
-  components:{
-    ChatComponent
-  },
-  methods: {
-    storeMessage(msg: any) {
-      chat.store(msg).subscribe();
-    }
-  }
+  store,
+  components:{ ChatComponent },
+  template: '<chat-component/>'
 });
-
-chat.order('datetime', 'descending')
-  .limit(8)
-  .watch()
-  .subscribe(function(msgs:any){
-    app.messages = msgs;
-  });
 
 // Image preloading
 const image = new Image();
-image.src = app.avatar_url;
+image.src = store.state.avatar_url;
