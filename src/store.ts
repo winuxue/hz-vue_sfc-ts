@@ -1,12 +1,8 @@
-/// <reference path="horizon/index.d.ts" />
-
 import Vue from "vue";
 import Vuex from 'vuex'
 Vue.use(Vuex);
 
-// declare var Horizon: any;
 import Horizon from '@horizon/client';
-// import * as Horizon from '@horizon/client/src';
 
 const horizon = Horizon();
 const chat = horizon('chat');
