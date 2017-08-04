@@ -18,36 +18,31 @@
       </div>
     </div>
 </template>
-<script>
-export default {
-  //props:['newMessage'],
-  data: function(){
-    return{
-      newMessage: ''
-    }
-  },
-  computed: {
-    messages(){
-      return this.$store.state.messages;
-    },
-    avatar(){
-      return this.$store.state.avatar_url;
-    }
-  },
-  methods: {
-    addMessage() {
-      var text = this.newMessage.trim();
-      if (text) {        
-        var message = {
-          text: text,
-          datetime: new Date(),
-          url: this.avatar,
-        };
-        
-        //this.$emit('storeMessage', message);
-        this.$store.commit('storeMessage', message);
-        this.newMessage = '';
-      }
+<script lang="ts">
+import Vue from 'vue'
+import Component from 'vue-class-component'
+import { Message } from '../models/message'
+
+@Component
+export default class Chat extends Vue{
+  newMessage: ''
+  get messages():Message[] {
+    return this.$store.state.messages;
+  }
+  get avatar():string{
+    return this.$store.state.avatar_url;
+  }
+  addMessage() {
+    var text = this.newMessage.trim();
+    if (text) {        
+      let message : Message = {
+        text: text,
+        datetime: new Date(),
+        url: this.avatar
+      };
+      
+      this.$store.commit('storeMessage', message);
+      this.newMessage = '';
     }
   }
 };

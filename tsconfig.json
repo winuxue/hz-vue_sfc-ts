@@ -7,8 +7,20 @@
         "module": "es2015",
         "moduleResolution": "node",
         "target": "es5",
+        
+        //for Horizon
         "allowSyntheticDefaultImports": true,
-        "allowJs": true
+        "allowJs": true,
+
+        //For Vue Components
+        "noImplicitAny": false,
+        "experimentalDecorators": true,
+        "lib": [
+            "dom",
+            "es5",
+            "es2015.promise",
+            "es2015.iterable"
+        ]
     },
     "include": [
         "./src/**/*"

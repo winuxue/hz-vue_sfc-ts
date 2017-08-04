@@ -1,8 +1,9 @@
 import Vue from "vue";
 import Vuex from 'vuex'
-Vue.use(Vuex);
-
+import { Message } from './models/message'
 import Horizon from '@horizon/client';
+
+Vue.use(Vuex);
 
 const horizon = Horizon();
 const chat = horizon('chat');
@@ -13,10 +14,10 @@ const store = new Vuex.Store({
     avatar_url: ''
   },
   mutations: {
-    storeMessage (state: any, msg: any) {
-      chat.store(msg).subscribe();
+    storeMessage (state: any, msg: Message) {
+      chat.store(msg);
     },
-    setMessages (state: any, msgs: any) {
+    setMessages (state: any, msgs: Message[]) {
       state.messages = msgs;
     },
     setAvatar (state: any, url: string) {
