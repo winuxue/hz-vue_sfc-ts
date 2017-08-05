@@ -9,12 +9,15 @@
         "target": "es5",
         
         //for Horizon
-        "allowSyntheticDefaultImports": true,
-        "allowJs": true,
-
-        //For Vue Components
         "noImplicitAny": false,
+        // "allowJs": true,
+
+        //for Horizon, Vue
+        "allowSyntheticDefaultImports": true,
+        
+        //For Vue Components
         "experimentalDecorators": true,
+        "types": ["vue-typescript-import-dts"],
         "lib": [
             "dom",
             "es5",
