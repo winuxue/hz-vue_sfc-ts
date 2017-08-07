@@ -20,7 +20,7 @@
 <script lang="ts">
 import Vue from 'vue'
 import Component from 'vue-class-component'
-import { Message } from '../models/message'
+import { Message } from '../state/message'
 
 @Component
 export default class Chat extends Vue {

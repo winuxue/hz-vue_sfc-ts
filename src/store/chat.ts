@@ -1,6 +1,6 @@
 import Vue from "vue";
 import Vuex from 'vuex'
-import { Message } from './models/message'
+import { Message } from '../state/message'
 import Horizon from '@horizon/client';
 
 Vue.use(Vuex);
