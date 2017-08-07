@@ -1,5 +1,5 @@
 # hz-vue_sfc-ts
-A simple chat built using [Horizon](http://horizon.io), [Vue](https://vuejs.org/) ([Single File Components](https://vuejs.org/v2/guide/single-file-components.html), [Vuex](https://vuex.vuejs.org/en/intro.html)) and [Typescript](https://github.com/Microsoft/TypeScript-Vue-Starter) based on [this example](https://github.com/rethinkdb/horizon/tree/next/examples/vue-chat-app).
+A simple chat built using [Horizon](http://horizon.io), [Vue](https://vuejs.org/) ([Single File Components](https://vuejs.org/v2/guide/single-file-components.html), [Vuex](https://vuex.vuejs.org/en/intro.html)), [Typescript](https://github.com/Microsoft/TypeScript-Vue-Starter) and [Bulma](http://bulma.io/).
 
 ## How to use
 
