@@ -21,16 +21,15 @@
 import Vue from 'vue'
 import Component from 'vue-class-component'
 import { Message } from '../state/message'
+import { State, Getter, Action, Mutation, namespace } from 'vuex-class'
 
 @Component
 export default class Chat extends Vue {
+  @State('messages') messages: Message[]
+  @State('avatar_url') avatar: string
+  @Mutation('storeMessage') storeMessage:(message:Message)=> void
+  
   newMessage: ''
-  get messages(): Message[] {
-    return this.$store.state.messages;
-  }
-  get avatar(): string {
-    return this.$store.state.avatar_url;
-  }
   addMessage() {
     var text = this.newMessage.trim();
     if (text) {
@@ -40,7 +39,7 @@ export default class Chat extends Vue {
         url: this.avatar
       };
 
-      this.$store.commit('storeMessage', message);
+      this.storeMessage(message);
       this.newMessage = '';
     }
   }
